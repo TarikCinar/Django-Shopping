@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if urun_yok %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <span style="font-size: 28px">Arama kriterlerinize göre bir ünün bulamadık.</span>
+                </div>
+            </div>
+        </div>
+        {% else %}
+
+        {% if uyari %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Bu ürün zaten sepete eklenmiş</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endif %}
+            {% if eklendi %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Ürün sepete eklendi.</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endif %}
+            <div class="container-fluid">
+                <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        {% for i in urunler %}
+                        <div class="col-md-4 col-sm-6" style="margin-bottom: 20px">
+                            <div class="card shadow" style="width: 18rem;">
+                                <a  href="/{{ i.id }}/urun_icerigi">
+                                <img class="card-img-top" src="{{ i.image.url }}" alt="Card image cap" style="height: 15rem;width: 18rem">
+                                </a>
+                                <div class="card-body" style="text-align: center;margin-top: 20px">
+                                <h5 class="card-title">{{ i.name }}</h5>
+                                <p class="card-text">{{ i.price }} ₺</p>
+                                  <form method="POST" action="{% url 'home' %}">
+                                      {% csrf_token %}
+                                      <label style="display: none">
+                                          <input name="urun" value={{ i.id }}>
+                                      </label>
+                                      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Sepete ekle</button>
+                                  </form>
+                              </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                      <div class="col-md-12">
+                        <div class="list-group shadow" id="list-tab" role="tablist" style="text-align: center">
+                          <a class="list-group-item list-group-item-action" id="list-home-list"  role="tab" aria-controls="home" style="background-color: #343A40"><b style="color:#FFF">Sırala</b></a>
+                          <a class="list-group-item list-group-item-action" id="list-profile-list"  href="/1/{{ category }}/sirala" role="tab" aria-controls="profile">En yüksek </a>
+                          <a class="list-group-item list-group-item-action" id="list-messages-list"  href="/2/{{ category }}/sirala" role="tab" aria-controls="messages">En düşük</a>
+                          <a class="list-group-item list-group-item-action" id="list-settings-list"  href="/3/{{ category }}/sirala" role="tab" aria-controls="settings">En yeni</a>
+                          <a class="list-group-item list-group-item-action" id="list-settings-list"  href="/4/{{ category }}/sirala" role="tab" aria-controls="settings">En eski</a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    {% endif %}
+
+
+{% endblock %}

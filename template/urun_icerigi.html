@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="{{ urun.image.url }}" style="width: 500px;height: 450px" alt="image" class="img-responsive">
+        </div>
+        <div class="col-md-7" style="margin-top: 20px">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <div class="card-title">Ürün detayları</div>
+                        <div class="card-category"></div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-typo">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="largeSelect">Fiyat</label>
+
+                                    </td>
+                                    <td><span class="h4">{{urun.price}}₺</span></td>
+                                </tr>
+                            <tr>
+                                    <td>
+                                        <label for="largeSelect">Ürün adı</label>
+
+                                    </td>
+                                    <td><span class="h4">{{urun.name}}</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="largeSelect">Ürün eklenme Tarihi</label>
+
+                                    </td>
+                                    <td><span class="h4">{{urun.upload_date}}</span></td>
+                                </tr>
+                            </tr>
+                                <tr>
+                                    <td>
+                                        <label for="largeSelect">Açıklama</label>
+
+                                    </td>
+                                    <td><span class="h6">{{urun.explanation}}</span></td>
+                                </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label for="largeSelect">Satıcı</label>
+
+                                        </td>
+                                        <td><span class="h4">{{ urun.seller }}</span></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div></div>
+    </div>
+    </div>
+{% endblock %}

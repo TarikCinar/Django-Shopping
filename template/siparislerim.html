@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if siparislerim %}
+     <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center"></th>
+              <th scope="col" style="text-align: center">Ürün Adı</th>
+              <th scope="col" style="text-align: center">Satıcı</th>
+              <th scope="col" style="text-align: center">Alış Tarihi</th>
+              <th scope="col" style="text-align: center">Fiyat</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in siparislerim %}
+                    <tr>
+                      <td style="padding-left: 30px" onclick="location.href='/{{ i.siparislerim.id }}/urun_icerigi'"><img src="{{ i.siparislerim.image.url }}" style="width: 100px;height: 100px;" ></td>
+                      <td  style="height: 100px;padding-top: 50px;font-size: 16px;text-align: center">{{ i.siparislerim.name }}</td>
+                      <td style="height: 100px;padding-top: 50px;font-size: 16px;text-align: center">{{ i.siparislerim.seller }}</td>
+                      <td style="height: 100px;padding-top: 50px;font-size: 16px;text-align: center">{{ i.date.date }}</td>
+                      <td style="height: 100px;padding-top: 50px;font-size: 16px;text-align: center">{{ i.siparislerim.price }}₺</td>
+                    </tr>
+            {% endfor %}
+            <tr style="height:50px">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="font-size: 16px;text-align: center"><b>Toplam Fiyat</b></td>
+                <td style="font-size: 16px;text-align: center"><b style="margin-left: 15px">{{ toplam }}₺</b></td>
+            </tr>
+          </tbody>
+        </table>
+        {% else %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="text-align: center">
+                        <span style="font-size: 28px">Sipariş ettiğiniz ürün bulunmamaktadır.</span>
+                    </div>
+                </div>
+            </div>
+
+    {% endif %}
+{% endblock%}
