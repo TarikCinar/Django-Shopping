@@ -1,10 +1,13 @@
 # Django-Shopping
-Django ile küçük çaplı bir alış veriş sitesi.
-Özellikler:
-  1.Ürün Ekleme - Çıkarma
-  2.Ürün Kategorisi
-  3.Ürün Fİltreleme
-  4.Ürün Arama 
-  5.Sepet Özelliği
-  6.Sepetten ürün alımı ve bunları müşteri profilinde gösterme
-  7.Müşteri Kaydı ve Profili
+Django ile küçük çaplı bir alış veriş sitesi.<br>
+<b>Özellikler:</b>
+<ol>
+  <li>Ürün Ekleme - Çıkarma</li>
+  <li>Ürün Kategorisi</li>
+  <li>Ürün Fİltreleme</li>
+  <li>Ürün Arama </li>
+  <li>Sepet Özelliği</li>
+  <li>Sepetten ürün alımı ve bunları müşteri profilinde gösterme</li>
+  <li>Müşteri Kaydı ve Profili</li>
+</ol>
+
